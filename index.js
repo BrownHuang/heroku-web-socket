@@ -53,10 +53,10 @@ const sendMessageToClient = function(clients, socket, message){
       if(client === socket){
         //Do Nothing
         console.log(socket.name,' said :',message);      
-        client.emit('send_message',`${socket.name} said : ${message}`);        
+        client.emit('send_message',`${message}`);        
         
       }else{
-        client.emit('send_message',`${socket.name} said : ${message}`);        
+        client.emit('send_message',`${message}`);        
       }
     }
   
