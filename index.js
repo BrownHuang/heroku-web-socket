@@ -17,6 +17,7 @@ server.listen(PORT, function(){
 })
 
 var clients = [];
+var clientNames = [];
 
 io.on('connection', function(socket){
 
@@ -28,8 +29,11 @@ io.on('connection', function(socket){
     let username = data;
     socket.name = username;
     clients.push(socket);
-    socket.emit('create_client',`create_client ${username} is OK`);    
-
+    clientNames.push(username);
+    
+    //socket.emit('create_client',`create_client ${clients} is OK`);    
+    socket.emit('create_client',JSON.stringify(clientNames));    
+    
   });
 
   socket.on('send_message', function(data){
@@ -69,8 +73,15 @@ const deleteClient = function(clients, socket){
       if(client === socket){
         console.log('user', client.name, 'disconnet');
         clients.splice(i, 1 );
+        clientNames.slice(i, 1);        
       }else{
         //Do Nothing        
       }
   }
+
+  for(let i = 0; i < clients.length; i++){
+    let client = clients[i];
+    socket.emit('delete_client',JSON.stringify(clientNames));            
+  }
+  
 }
