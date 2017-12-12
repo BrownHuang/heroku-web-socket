@@ -73,7 +73,7 @@ const deleteClient = function(clients, socket){
       if(client === socket){
         console.log('user', client.name, 'disconnet');
         clients.splice(i, 1 );
-        clientNames.slice(i, 1);        
+        clientNames.splice(i, 1 );  
       }else{
         //Do Nothing        
       }
