@@ -29,7 +29,7 @@ io.on('connection', function(socket){
     let username = data;
     socket.name = username;
     clients.push(socket);
-    clientNames.push(username);
+    clientNames.push({name: username});
     
     //socket.emit('create_client',`create_client ${clients} is OK`);    
     socket.emit('create_client',JSON.stringify(clientNames));    
