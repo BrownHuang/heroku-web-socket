@@ -58,10 +58,10 @@ const createClient = function(clients, socket){
     let client = clients[i];
     if(client === socket){
       console.log('user', client.name, 'connet');  
-      socket.emit('create_client',JSON.stringify(clientNames));      
+      client.emit('create_client',JSON.stringify(clientNames));      
     }else{
       //Do Nothing   
-      socket.emit('create_client',JSON.stringify(clientNames));      
+      client.emit('create_client',JSON.stringify(clientNames));      
     }
 
   }
@@ -98,7 +98,7 @@ const deleteClient = function(clients, socket){
 
   for(let i = 0; i < clients.length; i++){
     let client = clients[i];
-    socket.emit('delete_client',JSON.stringify(clientNames));            
+    client.emit('delete_client',JSON.stringify(clientNames));            
   }
   
 }
