@@ -32,8 +32,8 @@ io.on('connection', function(socket){
     clientNames.push({name: username});
     
     //socket.emit('create_client',`create_client ${clients} is OK`);    
-    socket.emit('create_client',JSON.stringify(clientNames));
-    //createClient(clients, socket);
+    //socket.emit('create_client',JSON.stringify(clientNames));
+    createClient(clients, socket);
     
   });
 
@@ -51,7 +51,7 @@ io.on('connection', function(socket){
 
 });
 
-/*
+
 const createClient = function(clients, socket){
   
   for(let i = 0; i < clients.length; i++){
@@ -64,7 +64,8 @@ const createClient = function(clients, socket){
       socket.emit('create_client',JSON.stringify(clientNames));      
     }
 
-}*/
+  }
+}
 
 const sendMessageToClient = function(clients, socket, message){
   
