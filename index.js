@@ -51,6 +51,7 @@ io.on('connection', function(socket){
 
 });
 
+/*
 const createClient = function(clients, socket){
   
   for(let i = 0; i < clients.length; i++){
@@ -63,7 +64,7 @@ const createClient = function(clients, socket){
       socket.emit('create_client',JSON.stringify(clientNames));      
     }
 
-}
+}*/
 
 const sendMessageToClient = function(clients, socket, message){
   
